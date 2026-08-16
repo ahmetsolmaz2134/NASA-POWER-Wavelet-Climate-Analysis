@@ -1,64 +1,64 @@
 # NASA POWER-Based Wavelet Analysis of Climate Variability in Southeastern Türkiye
 
+<p align="center">
+  <img src="figures/temperature_wavelet.png" width="48%">
+  <img src="figures/precipitation_wavelet.png" width="48%">
+</p>
+
+<p align="center">
+  <img src="figures/temperature_precipitation_wtc.png" width="48%">
+  <img src="figures/temperature_humidity_wtc.png" width="48%">
+</p>
+
+<p align="center">
+  <b>Time–frequency analysis of climate variability using NASA POWER data</b>
+</p>
+
+---
+
 ## Overview
 
 This project investigates the temporal variability and time–frequency characteristics of climate variables across Southeastern Türkiye using long-term NASA POWER meteorological data.
 
 Unlike conventional trend-based climate analyses, this study applies wavelet-based methods to identify dominant periodicities, temporal changes in climate variability, and time-dependent relationships between meteorological variables.
 
-The primary objective is to determine not only whether climate variables have changed over time, but also **when and at which temporal scales these changes have been most pronounced**.
+The main objective is to determine not only whether climate variables have changed over time, but also:
 
----
-
-## Research Objectives
-
-The study aims to:
-
-1. Analyze long-term variability in temperature, precipitation, and atmospheric moisture.
-2. Identify dominant periodicities within climate time series.
-3. Detect temporal changes in climate variability using continuous wavelet analysis.
-4. Examine the relationship between temperature and precipitation in the time–frequency domain.
-5. Investigate temperature–humidity and precipitation–humidity interactions.
-6. Identify periods of statistically significant climate variability.
-7. Evaluate whether climate relationships change across different temporal scales.
+> **When do these changes occur, and at which temporal scales are they strongest?**
 
 ---
 
 ## Study Region
 
-The study focuses on Southeastern Türkiye, a region characterized by:
+The study focuses on Southeastern Türkiye, a climatically diverse region characterized by:
 
-- Strong climatic gradients
+- Strong seasonal temperature variability
+- Pronounced precipitation seasonality
 - Semi-arid and dry sub-humid conditions
 - High summer temperatures
-- Pronounced seasonal precipitation variability
 - Increasing exposure to drought and heat extremes
 
-The region is particularly suitable for time–frequency climate analysis because of its strong seasonal cycle and substantial interannual variability.
+The region provides an appropriate geographical setting for investigating multi-scale climate variability.
 
 ---
 
 ## Data Source
 
-All meteorological data are obtained from the:
+All meteorological data are obtained from:
 
 **NASA Prediction of Worldwide Energy Resources (NASA POWER)**
 
-NASA POWER provides globally distributed meteorological and solar radiation datasets derived from satellite observations and numerical weather models.
-
-### Temporal Coverage
+### Study Period
 
 **1981–2025**
 
 ### Temporal Resolution
 
-Daily observations aggregated to monthly time series for wavelet analysis.
+Daily observations aggregated into monthly climate time series.
 
 ---
 
 ## Climate Variables
-
-The primary variables used in this study are:
 
 | Variable | Description |
 |---|---|
@@ -68,135 +68,179 @@ The primary variables used in this study are:
 | PRECTOTCORR | Corrected precipitation |
 | RH2M | Relative humidity at 2 m |
 
-Additional variables may be incorporated during later stages of the analysis.
+---
+
+# Research Objectives
+
+The study aims to:
+
+1. Examine long-term climate variability.
+2. Identify dominant periodicities in climate time series.
+3. Detect temporal changes in climate variability.
+4. Investigate temperature–precipitation relationships.
+5. Examine temperature–humidity interactions.
+6. Identify statistically significant oscillations.
+7. Determine whether climate relationships vary across temporal scales.
 
 ---
 
 # Methodology
 
-The analytical framework consists of several sequential stages.
-
 ## 1. Data Acquisition
 
-Daily climate data will be obtained directly from the NASA POWER API.
+Daily climate data are obtained from the NASA POWER API.
 
-The workflow is designed to be fully reproducible, allowing the complete dataset to be regenerated without manually downloading individual files.
+The workflow is designed to be reproducible, allowing the dataset to be regenerated directly from the API.
 
 ---
 
 ## 2. Data Processing
 
-The raw NASA POWER data will be:
+The raw data are:
 
 - Imported into R
-- Quality checked
-- Converted to appropriate date formats
-- Examined for missing observations
+- Quality controlled
+- Checked for missing values
+- Converted into standardized time series
 - Aggregated from daily to monthly observations
-- Standardized where necessary for wavelet analysis
+- Prepared for time–frequency analysis
 
 ---
 
-## 3. Descriptive Climate Analysis
+## 3. Descriptive Analysis
 
-Initial analyses will include:
+The initial analysis includes:
 
 - Monthly climatology
 - Annual variability
-- Long-term anomalies
+- Climate anomalies
 - Seasonal variability
 - Interannual variability
-
-These analyses provide the climatic background necessary for interpreting the wavelet results.
 
 ---
 
 ## 4. Trend Analysis
 
-Conventional statistical methods will be used as a complementary component of the study.
+Conventional statistical methods are applied before the wavelet analysis.
 
-### Methods
+### Statistical Methods
 
 - Mann–Kendall trend test
 - Sen's slope estimator
-- Anomaly analysis
+- Climate anomaly analysis
 
-The purpose of this stage is to determine whether statistically significant monotonic trends exist before examining their time–frequency structure.
+These methods provide information about the overall direction and magnitude of climate change.
 
 ---
 
-# 5. Continuous Wavelet Transform (CWT)
+# 5. Continuous Wavelet Transform
 
-The Continuous Wavelet Transform will constitute the core analytical method.
+The **Continuous Wavelet Transform (CWT)** is the core method of this project.
 
-CWT decomposes a time series into both:
+CWT decomposes climate time series into:
 
 - Time
-- Frequency / Period
+- Frequency
+- Period
 
-This allows the detection of dominant oscillations and temporal changes in their strength.
+This allows dominant oscillations to be identified and their temporal evolution to be investigated.
 
 ### Main outputs
 
-- Wavelet power spectrum
+- Wavelet Power Spectrum
 - Dominant periodicities
-- Time-dependent variability
 - Cone of Influence (COI)
-- Statistical significance regions
-
-The analysis will focus particularly on annual and multi-annual climate variability.
-
----
-
-# 6. Cross-Wavelet Transform (XWT)
-
-Cross-Wavelet Transform will be applied to investigate common high-power oscillations between climate variables.
-
-Primary relationships include:
-
-### Temperature ↔ Precipitation
-
-### Temperature ↔ Relative Humidity
-
-### Precipitation ↔ Relative Humidity
-
-XWT will identify periods in which two climate variables exhibit strong common variability.
+- Statistical significance
+- Time-dependent variability
 
 ---
 
-# 7. Wavelet Coherence (WTC)
+## Temperature Wavelet Analysis
 
-Wavelet Coherence will be used to investigate localized relationships between climate variables in the time–frequency domain.
+<p align="center">
+  <img src="figures/temperature_wavelet.png" width="85%">
+</p>
 
-Unlike conventional correlation analysis, WTC allows relationships to vary across:
+---
 
-- Time
-- Period
-- Frequency
+## Precipitation Wavelet Analysis
 
-This provides a more detailed understanding of climate interactions.
+<p align="center">
+  <img src="figures/precipitation_wavelet.png" width="85%">
+</p>
 
-Particular attention will be given to:
+---
+
+# 6. Cross-Wavelet Transform
+
+The **Cross-Wavelet Transform (XWT)** is used to identify common high-power oscillations between climate variables.
+
+The main relationships investigated are:
+
+- Temperature ↔ Precipitation
+- Temperature ↔ Relative Humidity
+- Precipitation ↔ Relative Humidity
+
+---
+
+## Temperature–Precipitation Cross-Wavelet Analysis
+
+<p align="center">
+  <img src="figures/temperature_precipitation_xwt.png" width="85%">
+</p>
+
+---
+
+# 7. Wavelet Coherence
+
+**Wavelet Coherence (WTC)** is used to investigate localized relationships between climate variables in the time–frequency domain.
+
+Unlike conventional correlation analysis, wavelet coherence allows relationships to vary across both time and frequency.
+
+The analysis evaluates:
 
 - Coherent periods
 - Phase relationships
 - Temporal changes in coupling
-- Annual and multi-annual scales
+- Annual variability
+- Multi-annual variability
+
+---
+
+## Temperature–Precipitation Wavelet Coherence
+
+<p align="center">
+  <img src="figures/temperature_precipitation_wtc.png" width="85%">
+</p>
+
+---
+
+## Temperature–Humidity Wavelet Coherence
+
+<p align="center">
+  <img src="figures/temperature_humidity_wtc.png" width="85%">
+</p>
+
+---
+
+## Precipitation–Humidity Wavelet Coherence
+
+<p align="center">
+  <img src="figures/precipitation_humidity_wtc.png" width="85%">
+</p>
 
 ---
 
 # Research Questions
 
-The study addresses the following questions:
-
 ### RQ1
-What are the dominant temporal periodicities in temperature, precipitation, and atmospheric moisture across Southeastern Türkiye?
+What are the dominant temporal periodicities in temperature, precipitation, and atmospheric moisture?
 
 ### RQ2
-Have the dominant periodicities remained stable throughout the study period?
+Have dominant periodicities remained stable throughout the study period?
 
 ### RQ3
-During which periods are climate variables characterized by statistically significant oscillations?
+During which periods do statistically significant climate oscillations occur?
 
 ### RQ4
 At which temporal scales do temperature and precipitation exhibit significant coherence?
@@ -205,51 +249,11 @@ At which temporal scales do temperature and precipitation exhibit significant co
 Does the relationship between temperature and atmospheric moisture vary through time?
 
 ### RQ6
-Are climate relationships stronger at seasonal, annual, or multi-annual time scales?
+Are climate relationships stronger at seasonal, annual, or multi-annual scales?
 
 ---
 
-# Expected Outputs
-
-The project will produce:
-
-### Climate Time-Series Figures
-
-- Temperature anomalies
-- Precipitation anomalies
-- Humidity variability
-- Seasonal climate variability
-
-### Wavelet Figures
-
-- Temperature Wavelet Power Spectrum
-- Precipitation Wavelet Power Spectrum
-- Humidity Wavelet Power Spectrum
-- Maximum temperature Wavelet Power Spectrum
-
-### Cross-Wavelet Figures
-
-- Temperature–Precipitation XWT
-- Temperature–Humidity XWT
-- Precipitation–Humidity XWT
-
-### Wavelet Coherence Figures
-
-- Temperature–Precipitation WTC
-- Temperature–Humidity WTC
-- Precipitation–Humidity WTC
-
-### Statistical Results
-
-- Mann–Kendall statistics
-- Sen's slope
-- Significant wavelet periods
-- Dominant periodicities
-- Wavelet coherence characteristics
-
----
-
-# Reproducible Workflow
+# Analytical Workflow
 
 ```text
 NASA POWER API
@@ -258,7 +262,7 @@ NASA POWER API
 Daily Climate Data
        │
        ▼
-Quality Control & Processing
+Quality Control
        │
        ▼
 Monthly Climate Series
